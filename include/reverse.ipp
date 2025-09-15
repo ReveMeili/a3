@@ -12,12 +12,12 @@ void MyClass::doSomething() {
 
 template <typename T>
 void print_array(const T array[], int size){
-    std::cout<< "Array printed:\n[";
+    std::cout<< "[";
     for (int i= 0; i<size; i++ ){
         std::cout<<array[i]; 
         if (i<size-1) std::cout<< ", ";
     }
-    std::cout<< "]\n";
+    std::cout<< "]";
 }
 
 template <typename T>
