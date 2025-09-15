@@ -9,6 +9,7 @@
 #include <cstring>
 #include <cassert>
 #include <iostream>
+#include <string>
 
 TEST_CASE("testing int", "[int test]"){
 int ai[]{1, 2, 3, 4};
@@ -58,8 +59,28 @@ TEST_CASE("testing c-string", "[c-string test]"){
     std::cout << "cstr: " << word << "\n";
 
     assert(std::string(word) == "woem");
+} 
+template <typename T>
+bool compare_arrays(const T a[], const T b[], int size) {
+    for (int i = 0; i < size; i++) {
+        if (a[i] != b[i]) return false;
+    }
+    return true;
 }
 
-TEST_CASE("testing odd", "[odd test]"){
+TEST_CASE("testing odd", "[edge]"){
+    int arr[]{42};
+    reverse_array(arr, 1);
+    int expected[]{42};
+    REQUIRE(compare_arrays(arr, expected, 1));
 
+    char arr3[]{'r','a','c','e','c','a','r'};
+    reverse_array(arr3, 7);
+    char expected3[]{'r','a','c','e','c','a','r'};
+    REQUIRE(compare_arrays(arr3, expected3, 7));
+
+    int arr4[]{9, 8, 7, 6};
+    reverse_array(arr4, 4);
+    int expected4[]{6, 7, 8, 9};
+    REQUIRE(compare_arrays(arr4, expected4, 4));
 }
