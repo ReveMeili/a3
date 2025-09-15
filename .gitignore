@@ -10,6 +10,6 @@ cmake_install.cmake
 
 # Ignore compiled binaries
 *.o
-*.out
+#*.out
 *.exe
 
